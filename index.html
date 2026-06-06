@@ -92,52 +92,132 @@ const PLAYS = [
     desc:"QB calls HUT with the ball and fires a fast pass to the slot WR cutting inside. Get it out before the rush arrives.",
     kidPhrase:"Catch it and go.",
     coachKeys:["Get it out fast — beat the rush","Slot WR sells the inside cut","Throw on rhythm, don't hold it"],
-    runZone:false, decoys:['L_WR','C','RB'] },
+    runZone:false, decoys:['L_WR','C','RB'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:40, x:130, y:175}, {t:100, x:160, y:175} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:330, y:110} ],
+      RB:   [ {t:0, x:245, y:245}, {t:100, x:165, y:245} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:160} ]
+    }
+  },
   { id:2, name:"DEEP BOMB", call:"LAMBEAU", start:"QB HUT", kind:"PASS", theme:"sky", icon:"🚀",
     desc:"QB calls HUT, slides back a step, and throws deep to the outside WR streaking down the sideline. Look the safety off first.",
     kidPhrase:"Run fast. I'll find you.",
     coachKeys:["WR runs full speed, no slowing down","Lead the throw out in front","Catch with a foot in bounds"],
-    runZone:false, decoys:['L_WR','C','RB'] },
+    runZone:false, decoys:['L_WR','C','RB'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235}, {t:40, x:200, y:250}, {t:100, x:200, y:250} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:330, y:20} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:100, x:110, y:90} ],
+      RB:   [ {t:0, x:245, y:245}, {t:100, x:245, y:240} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:150} ]
+    }
+  },
   { id:3, name:"RB OPTION LEFT", call:"GOLD", start:"QB HUT", kind:"OPTION", theme:"amber", icon:"↩",
     desc:"QB calls HUT and hands to the RB sweeping LEFT behind the line. RB runs first. If the defense charges, the RB can throw — but the ball MUST leave their hand before they cross the line.",
     kidPhrase:"Run first. Throw before the line.",
     coachKeys:["Run first — only throw if they swarm","Ball leaves your hand BEFORE the line","If in doubt, just keep running"],
-    runZone:true, decoys:['R_WR'] },
+    runZone:true, decoys:['R_WR'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235}, {t:30, x:200, y:235}, {t:100, x:215, y:245} ],
+      RB:   [ {t:0, x:245, y:245}, {t:30, x:195, y:235}, {t:65, x:105, y:220}, {t:100, x:105, y:220} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:60, x:330, y:130}, {t:100, x:290, y:130} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:100, x:70, y:110} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:155} ]
+    }
+  },
   { id:4, name:"RB OPTION RIGHT", call:"PACKER", start:"QB HUT", kind:"OPTION", theme:"orange", icon:"↪",
     desc:"Same play, mirrored. QB calls HUT, hands to the RB sweeping RIGHT behind the line. RB runs, or throws to an open WR — releasing it before crossing the line.",
     kidPhrase:"Same play. Other way.",
     coachKeys:["Run first — only throw if they swarm","Ball leaves your hand BEFORE the line","If in doubt, just keep running"],
-    runZone:true, decoys:['L_WR'] },
+    runZone:true, decoys:['L_WR'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235}, {t:30, x:200, y:235}, {t:100, x:185, y:245} ],
+      RB:   [ {t:0, x:245, y:245}, {t:30, x:200, y:235}, {t:65, x:295, y:220}, {t:100, x:295, y:220} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:60, x:70, y:130}, {t:100, x:110, y:130} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:330, y:110} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:155} ]
+    }
+  },
   { id:5, name:"QB KEEPER", call:"CHEESE", start:"CENTER SNAP", kind:"RUN", theme:"yellow", icon:"🧀",
     desc:"Center snaps to the QB — that snap is a handoff, so the QB is allowed to run. QB fakes the handoff to the RB, then keeps it and runs the lane the fake opened.",
     kidPhrase:"Fake it. Take it.",
     coachKeys:["Legal ONLY off a center snap","Sell the RB fake","Hit the lane downhill"],
-    runZone:true, decoys:['RB','L_WR','R_WR'] },
+    runZone:true, decoys:['RB','L_WR','R_WR'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235}, {t:35, x:200, y:235}, {t:55, x:225, y:230}, {t:100, x:245, y:115} ],
+      RB:   [ {t:0, x:245, y:245}, {t:35, x:205, y:245}, {t:100, x:95, y:240} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:100, x:100, y:90} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:300, y:90} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:150} ]
+    }
+  },
   { id:6, name:"MOTION REVERSE", call:"LINK", start:"CENTER SNAP", kind:"RUN", theme:"violet", icon:"🔄",
     desc:"Left WR motions across the field before the snap. Center snaps to QB, QB hands to the RB going right, then the RB hands it BACK to the crossing WR going left. Two fakes.",
     kidPhrase:"Move. Fake. Reverse.",
     coachKeys:["WR motions at a jog, not a sprint","Sell the right-side run hard","Hide the reverse handoff with your body"],
-    runZone:true, decoys:['R_WR'] },
-  { id:7, name:"QUICK SLANT", call:"SNAP", start:"CENTER SNAP", kind:"PASS", theme:"teal", icon:"✚",
-    desc:"Center snaps to QB. Both WRs slant hard to the middle. QB throws to the first one that comes open. Fast and simple.",
-    kidPhrase:"Snap and slant.",
+    runZone:true, decoys:['R_WR'],
+    routes: {
+      L_WR: [ {t:0, x:90, y:250}, {t:30, x:270, y:250}, {t:62, x:240, y:250}, {t:72, x:240, y:248}, {t:100, x:30, y:210} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:160} ],
+      QB:   [ {t:0, x:200, y:232}, {t:45, x:200, y:232}, {t:62, x:230, y:234}, {t:100, x:232, y:236} ],
+      RB:   [ {t:0, x:285, y:246}, {t:45, x:285, y:246}, {t:62, x:240, y:246}, {t:72, x:245, y:247}, {t:100, x:375, y:227} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:330, y:105} ]
+    }
+  },
+  { id:7, name:"QUICK SLANT", call:"SNAP", start:"QB HUT", kind:"PASS", theme:"teal", icon:"✚",
+    desc:"QB starts with the ball and calls HUT. Both WRs slant hard to the middle. QB fires to the first one that comes open.",
+    kidPhrase:"Hut and slant.",
     coachKeys:["Both WRs cut at the same time","Throw the first one open","Quick read, quick throw"],
-    runZone:false, decoys:['RB'] },
+    runZone:false, decoys:['RB'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:160} ],
+      RB:   [ {t:0, x:245, y:245}, {t:100, x:285, y:245} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:100, x:180, y:155} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:220, y:155} ]
+    } 
+  },
   { id:8, name:"POWER SWEEP", call:"POWER", start:"CENTER SNAP", kind:"RUN", theme:"rose", icon:"💨",
     desc:"Center snaps to QB, QB hands to the RB sweeping wide right behind the WRs. WRs run their defenders off to clear the edge (screen blocking — no pushing). Get outside fast.",
     kidPhrase:"Get the edge. Go!",
     coachKeys:["Handoff behind the line","Screen blocks only — no pushing","Turn upfield once you're past the edge"],
-    runZone:true, decoys:['L_WR'] },
+    runZone:true, decoys:['L_WR'],
+    routes: {
+      QB:   [ {t:0, x:200, y:235}, {t:30, x:200, y:235}, {t:100, x:210, y:240} ],
+      RB:   [ {t:0, x:245, y:245}, {t:30, x:215, y:237}, {t:60, x:325, y:237}, {t:100, x:325, y:107} ],
+      R_WR: [ {t:0, x:330, y:200}, {t:100, x:330, y:60} ],
+      L_WR: [ {t:0, x:70, y:200}, {t:100, x:110, y:100} ],
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:155} ]
+    }
+  },
   { id:9, name:"BUNCH OPTION", call:"STACK", start:"CENTER SNAP", kind:"OPTION", theme:"fuchsia", icon:"🎯",
     desc:"All four players bunch tight with the QB right behind the center. Center snaps to QB. Everyone scatters to open space — QB reads it and RUNS through the chaos or throws to whoever pops open. Snapped to QB, so he can run.",
     kidPhrase:"Bunch up. Pick your guy.",
     coachKeys:["Receivers scatter to different levels","QB runs if the lane opens","Throw to the first one open"],
-    runZone:true, decoys:[] },
+    runZone:true, decoys:[],
+    routes: {
+      C:    [ {t:0, x:200, y:200}, {t:100, x:200, y:160} ],
+      QB:   [ {t:0, x:200, y:230}, {t:25, x:200, y:230}, {t:50, x:192, y:238}, {t:100, x:262, y:193} ],
+      L_WR: [ {t:0, x:178, y:205}, {t:20, x:178, y:205}, {t:100, x:58, y:150} ],
+      R_WR: [ {t:0, x:222, y:205}, {t:20, x:222, y:205}, {t:100, x:317, y:110} ],
+      RB:   [ {t:0, x:200, y:215}, {t:20, x:215, y:215}, {t:100, x:235, y:135} ]
+    }
+  },
   { id:10, name:"BUNCH QUICK", call:"CLUSTER", start:"QB HUT", kind:"PASS", theme:"cyan", icon:"💥",
     desc:"Same tight bunch, but the QB starts with the ball and calls HUT. Receivers burst out of the pile and the QB fires it fast to the first one open. No run — QB has the ball, so it must be a quick throw.",
     kidPhrase:"Hut and fire.",
     coachKeys:["Get it out immediately — no holding","Receivers break to open grass","First one open gets it"],
-    runZone:false, decoys:[] }
+    runZone:false, decoys:[],
+    routes: {
+      C:    [ {t:0, x:178, y:202}, {t:100, x:178, y:167} ],
+      QB:   [ {t:0, x:200, y:222} ],
+      L_WR: [ {t:0, x:185, y:208}, {t:18, x:185, y:208}, {t:100, x:75, y:168} ],
+      R_WR: [ {t:0, x:215, y:208}, {t:18, x:215, y:208}, {t:100, x:320, y:163} ],
+      RB:   [ {t:0, x:208, y:214}, {t:18, x:235, y:214}, {t:100, x:270, y:186} ]
+    }
+  }
 ];
 
 const THEMES = {
@@ -157,84 +237,35 @@ const kindColor = (k) => k==='PASS' ? {bg:'rgba(56,189,248,.18)',c:'#7dd3fc',b:'
   : k==='RUN' ? {bg:'rgba(251,113,133,.18)',c:'#fda4af',b:'rgba(251,113,133,.4)'}
   : {bg:'rgba(251,191,36,.18)',c:'#fcd34d',b:'rgba(251,191,36,.4)'};
 
-/* ---------- field math ---------- */
-function pos(playId, role, pct){
-  const start={C:{x:200,y:200},QB:{x:200,y:235},RB:{x:245,y:245},L_WR:{x:70,y:200},R_WR:{x:330,y:200}};
-  const t=pct/100;
-  switch(playId){
-    case 1:
-      if(role==='QB') return {x:200,y:235};
-      if(role==='L_WR'){ if(t<0.4) return {x:70+(60*(t/0.4)),y:200-(25*(t/0.4))}; return {x:130+(30*((t-0.4)/0.6)),y:175}; }
-      if(role==='R_WR') return {x:330,y:200-(90*t)};
-      if(role==='RB') return {x:245-(80*t),y:245};
-      if(role==='C') return {x:200,y:200-(40*t)};
-      break;
-    case 2:
-      if(role==='QB'){ if(t<0.4) return {x:200,y:235+(15*(t/0.4))}; return {x:200,y:250}; }
-      if(role==='R_WR') return {x:330,y:200-(180*t)};
-      if(role==='L_WR') return {x:70+(40*t),y:200-(110*t)};
-      if(role==='RB') return {x:245,y:245-(5*t)};
-      if(role==='C') return {x:200,y:200-(50*t)};
-      break;
-    case 3:
-      if(role==='QB'){ if(t<0.3) return {x:200,y:235}; return {x:200+(15*((t-0.3)/0.7)),y:235+(10*((t-0.3)/0.7))}; }
-      if(role==='RB'){ if(t<0.3) return {x:245-(50*(t/0.3)),y:245-(10*(t/0.3))}; if(t<0.65) return {x:195-(90*((t-0.3)/0.35)),y:235-(15*((t-0.3)/0.35))}; return {x:105,y:220}; }
-      if(role==='R_WR'){ if(t<0.6) return {x:330,y:200-(70*(t/0.6))}; return {x:330-(40*((t-0.6)/0.4)),y:130}; }
-      if(role==='L_WR') return {x:70,y:200-(90*t)};
-      if(role==='C') return {x:200,y:200-(45*t)};
-      break;
-    case 4:
-      if(role==='QB'){ if(t<0.3) return {x:200,y:235}; return {x:200-(15*((t-0.3)/0.7)),y:235+(10*((t-0.3)/0.7))}; }
-      if(role==='RB'){ if(t<0.3) return {x:245-(45*(t/0.3)),y:245-(10*(t/0.3))}; if(t<0.65) return {x:200+(95*((t-0.3)/0.35)),y:235-(15*((t-0.3)/0.35))}; return {x:295,y:220}; }
-      if(role==='L_WR'){ if(t<0.6) return {x:70,y:200-(70*(t/0.6))}; return {x:70+(40*((t-0.6)/0.4)),y:130}; }
-      if(role==='R_WR') return {x:330,y:200-(90*t)};
-      if(role==='C') return {x:200,y:200-(45*t)};
-      break;
-    case 5:
-      if(role==='QB'){ if(t<0.35) return {x:200,y:235}; if(t<0.55) return {x:200+(25*((t-0.35)/0.2)),y:235-(5*((t-0.35)/0.2))}; return {x:225+(20*((t-0.55)/0.45)),y:230-(115*((t-0.55)/0.45))}; }
-      if(role==='RB'){ if(t<0.35) return {x:245-(40*(t/0.35)),y:245}; return {x:205-(110*((t-0.35)/0.65)),y:245-(5*((t-0.35)/0.65))}; }
-      if(role==='L_WR') return {x:70+(30*t),y:200-(110*t)};
-      if(role==='R_WR') return {x:330-(30*t),y:200-(110*t)};
-      if(role==='C') return {x:200,y:200-(50*t)};
-      break;
-    case 6:
-      if(role==='L_WR'){ if(t<0.30) return {x:90+(180*(t/0.30)),y:250}; if(t<0.62) return {x:270-(30*((t-0.30)/0.32)),y:250}; if(t<0.72) return {x:240,y:248}; return {x:240-(210*((t-0.72)/0.28)),y:248-(38*((t-0.72)/0.28))}; }
-      if(role==='C') return {x:200,y:200-(40*t)};
-      if(role==='QB'){ if(t<0.45) return {x:200,y:232}; if(t<0.62) return {x:200+(30*((t-0.45)/0.17)),y:234}; return {x:232,y:236}; }
-      if(role==='RB'){ if(t<0.45) return {x:285,y:246}; if(t<0.62) return {x:285-(45*((t-0.45)/0.17)),y:246}; if(t<0.72) return {x:240+(5*((t-0.62)/0.10)),y:247}; return {x:245+(130*((t-0.72)/0.28)),y:247-(20*((t-0.72)/0.28))}; }
-      if(role==='R_WR') return {x:330,y:200-(95*t)};
-      break;
-    case 7:
-      if(role==='QB') return {x:200,y:235};
-      if(role==='L_WR') return {x:70+(110*t),y:200-(45*t)};
-      if(role==='R_WR') return {x:330-(110*t),y:200-(45*t)};
-      if(role==='RB') return {x:245+(40*t),y:245};
-      if(role==='C') return {x:200,y:200-(40*t)};
-      break;
-    case 8:
-      if(role==='QB'){ if(t<0.3) return {x:200,y:235}; return {x:200+(10*((t-0.3)/0.7)),y:240}; }
-      if(role==='RB'){ if(t<0.3) return {x:245-(30*(t/0.3)),y:245-(8*(t/0.3))}; if(t<0.6) return {x:215+(110*((t-0.3)/0.3)),y:237}; return {x:325,y:237-(130*((t-0.6)/0.4))}; }
-      if(role==='R_WR') return {x:330,y:200-(140*t)};
-      if(role==='L_WR') return {x:70+(40*t),y:200-(100*t)};
-      if(role==='C') return {x:200,y:200-(45*t)};
-      break;
-    case 9:
-      if(role==='C') return {x:200,y:200-(40*t)};
-      if(role==='QB'){ if(t<0.25) return {x:200,y:230}; if(t<0.5) return {x:200-(8*((t-0.25)/0.25)),y:230+(8*((t-0.25)/0.25))}; return {x:192+(70*((t-0.5)/0.5)),y:238-(45*((t-0.5)/0.5))}; }
-      if(role==='L_WR'){ if(t<0.2) return {x:178,y:205}; return {x:178-(120*((t-0.2)/0.8)),y:205-(55*((t-0.2)/0.8))}; }
-      if(role==='R_WR'){ if(t<0.2) return {x:222,y:205}; return {x:222+(95*((t-0.2)/0.8)),y:205-(95*((t-0.2)/0.8))}; }
-      if(role==='RB'){ if(t<0.2) return {x:200,y:215}; return {x:215+(20*((t-0.2)/0.8)),y:215-(80*((t-0.2)/0.8))}; }
-      break;
-    case 10:
-      if(role==='C') return {x:178,y:202-(35*t)};
-      if(role==='QB') return {x:200,y:222};
-      if(role==='L_WR'){ if(t<0.18) return {x:185,y:208}; return {x:185-(110*((t-0.18)/0.82)),y:208-(40*((t-0.18)/0.82))}; }
-      if(role==='R_WR'){ if(t<0.18) return {x:215,y:208}; return {x:215+(105*((t-0.18)/0.82)),y:208-(45*((t-0.18)/0.82))}; }
-      if(role==='RB'){ if(t<0.18) return {x:208,y:214}; return {x:235+(35*((t-0.18)/0.82)),y:214-(28*((t-0.18)/0.82))}; }
-      break;
-    default: return start[role];
+/* ---------- field math (new waypoint engine) ---------- */
+function getWaypointPos(waypoints, pct) {
+  if (!waypoints || waypoints.length === 0) return null;
+  if (waypoints.length === 1) return { x: waypoints[0].x, y: waypoints[0].y };
+  if (pct <= waypoints[0].t) return { x: waypoints[0].x, y: waypoints[0].y };
+  
+  const last = waypoints[waypoints.length - 1];
+  if (pct >= last.t) return { x: last.x, y: last.y };
+
+  for (let i = 0; i < waypoints.length - 1; i++) {
+    if (pct >= waypoints[i].t && pct <= waypoints[i+1].t) {
+      const wp1 = waypoints[i];
+      const wp2 = waypoints[i+1];
+      const segmentPct = (pct - wp1.t) / (wp2.t - wp1.t);
+      return {
+        x: wp1.x + (wp2.x - wp1.x) * segmentPct,
+        y: wp1.y + (wp2.y - wp1.y) * segmentPct
+      };
+    }
   }
-  return start[role];
+}
+
+function pos(playId, role, pct) {
+  const defaultStart = { C:{x:200,y:200}, QB:{x:200,y:235}, RB:{x:245,y:245}, L_WR:{x:70,y:200}, R_WR:{x:330,y:200} };
+  const play = PLAYS.find(p => p.id === playId);
+  if (play && play.routes && play.routes[role]) {
+    return getWaypointPos(play.routes[role], pct);
+  }
+  return defaultStart[role];
 }
 
 function ballPos(playId, pct){
@@ -247,7 +278,7 @@ function ballPos(playId, pct){
     case 4: if(t<0.3) return qb; if(t<0.7) return rb; { const p=(t-0.7)/0.3; return {x:rb.x+(lwr.x-rb.x)*p,y:rb.y+(lwr.y-rb.y)*p}; }
     case 5: if(t<0.2){ const p=t/0.2; return {x:c.x+(qb.x-c.x)*p,y:c.y+(qb.y-c.y)*p}; } return qb;
     case 6: if(t<0.30) return c; if(t<0.45){ const p=(t-0.30)/0.15; return {x:c.x+(qb.x-c.x)*p,y:c.y+(qb.y-c.y)*p}; } if(t<0.62){ const p=(t-0.45)/0.17; return {x:qb.x+(rb.x-qb.x)*p,y:qb.y+(rb.y-qb.y)*p}; } if(t<0.72) return rb; return lwr;
-    case 7: if(t<0.2){ const p=t/0.2; return {x:c.x+(qb.x-c.x)*p,y:c.y+(qb.y-c.y)*p}; } if(t<0.45) return qb; { const p=(t-0.45)/0.55; return {x:qb.x+(lwr.x-qb.x)*p,y:qb.y+(lwr.y-qb.y)*p}; }
+    case 7: if(t<0.45) return qb; { const p=(t-0.45)/0.55; return {x:qb.x+(lwr.x-qb.x)*p,y:qb.y+(lwr.y-qb.y)*p}; }
     case 8: if(t<0.2){ const p=t/0.2; return {x:c.x+(qb.x-c.x)*p,y:c.y+(qb.y-c.y)*p}; } if(t<0.3) return qb; return rb;
     case 9: if(t<0.25){ const p=t/0.25; return {x:c.x+(qb.x-c.x)*p,y:c.y+(qb.y-c.y)*p}; } return qb;
     case 10: if(t<0.45) return qb; { const p=(t-0.45)/0.55; return {x:qb.x+(lwr.x-qb.x)*p,y:qb.y+(lwr.y-qb.y)*p}; }
@@ -265,7 +296,7 @@ function phaseText(playId, pct, animating){
     case 4: if(t<0.3) return "HUT — handoff RIGHT"; if(t<0.7) return "RB sweeps right — run first!"; return "Throw? Before the line only!";
     case 5: if(t<0.2) return "Center snaps to QB"; if(t<0.35) return "QB fakes the handoff"; if(t<0.55) return "Sell it — RB runs away"; return "QB keeps it — go!";
     case 6: if(t<0.30) return "Left WR motions across"; if(t<0.45) return "Center snaps to QB"; if(t<0.62) return "QB hands right (fake)"; if(t<0.72) return "Hands BACK to the WR!"; return "Reverse — going left!";
-    case 7: if(t<0.2) return "Center snaps to QB"; if(t<0.45) return "Both WRs slant middle"; return "Hit the first one open!";
+    case 7: if(t<0.45) return "Both WRs slant middle"; return "Hit the first one open!";
     case 8: if(t<0.2) return "Center snaps to QB"; if(t<0.3) return "Handoff to the RB"; if(t<0.6) return "Sweep to the edge"; return "Turn it upfield!";
     case 9: if(t<0.25) return "Snap to QB out of the bunch"; if(t<0.5) return "Receivers scatter — QB reads"; return "QB runs the open lane (or throws)!";
     case 10: if(t<0.18) return "HUT — bunch bursts open"; if(t<0.45) return "Receivers break to grass"; return "Quick throw to the first one open!";
